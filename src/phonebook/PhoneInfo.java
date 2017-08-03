@@ -40,7 +40,6 @@ class PhoneInfo {
 	
 	void showPhoneInfo()
 	{
-		System.out.println("\nShow phone info..");
 		System.out.println("Name : " + name +  " \nPhone Number : " + phoneNumber + " \nbirthday : " + birthday);
 		System.out.println();
 	}
