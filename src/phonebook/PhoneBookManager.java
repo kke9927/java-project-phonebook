@@ -15,7 +15,7 @@ public class PhoneBookManager {
 		String pNumber = in.next();
 		System.out.print("Birthday : ");
 		String birthday = in.next();
-		System.out.println("Data has been updated successfully");
+		System.out.println("Data has been updated successfully\n");
 		person[count] = new PhoneInfo(name, pNumber, birthday); // Important..
 		count++;
 
@@ -31,8 +31,6 @@ public class PhoneBookManager {
 				System.out.println("Name : " + person[i].getName());
 				System.out.println("PhoneNumber : " + person[i].getPhoneNumber());
 				System.out.println("Birthday : " + person[i].getBirthday());
-
-				System.out.println("I find! yay");
 			} else
 				System.out.println("Cannot find data...");
 			System.out.println(" ");
@@ -53,6 +51,16 @@ public class PhoneBookManager {
 				person[i] = person[i+1];
 			}
 		}
+	}
+	public void showData()
+	{
+		if(person[0] != null )
+		for(int i=0; person[i] != null; i++)
+		{
+			person[i].showPhoneInfo();
+		}
+		else
+			System.out.println("nothing to show you...\n");
 	}
 
 }
