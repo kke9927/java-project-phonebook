@@ -28,7 +28,7 @@ public class PhoneBookv2 {
 
 			switch (n) {
 			case 1:
-				manager.addData(); // choose "1" which add data
+				manager.addData(); 
 				break; // keyword "break" which means escape this switch method
 
 			case 2:
@@ -42,7 +42,6 @@ public class PhoneBookv2 {
 			case 4:
 				manager.showData();
 				break;
-				
 			case 5:
 				System.out.println("Program is done");
 				return;

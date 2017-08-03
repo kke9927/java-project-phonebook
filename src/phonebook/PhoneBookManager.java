@@ -16,51 +16,69 @@ public class PhoneBookManager {
 		System.out.print("Birthday : ");
 		String birthday = in.next();
 		System.out.println("Data has been updated successfully\n");
-		person[count] = new PhoneInfo(name, pNumber, birthday); // Important..
-		count++;
-
+		person[count++] = new PhoneInfo(name, pNumber, birthday); // Important..
+		System.out.println(count);
 	}
 
 	public void searchData() {
+		Boolean m = false;
+
 		System.out.println("Let's start to find data...");
 		System.out.print("Name : ");
 		String name = in.next();
 
 		for (int i = 0; person[i] != null; i++) {
 			if (person[i].getName().equals(name)) {
-				System.out.println("Name : " + person[i].getName());
-				System.out.println("PhoneNumber : " + person[i].getPhoneNumber());
-				System.out.println("Birthday : " + person[i].getBirthday());
-			} else
-				System.out.println("Cannot find data...");
-			System.out.println(" ");
+				person[i].showPhoneInfo();
+				m = true;
+			}
 		}
+		if (!m)
+			System.out.println("Cannot find Data..");
 	}
-	
-	public void deleteData()
-	{
+
+	public int search(String name) {
+		for (int idx = 0; idx < count; idx++) {
+			if (person[idx].getName().equals(name))
+				return idx;
+		}
+		return -1;
+	}
+
+	public void deleteData() {
+
 		System.out.println("Let's start to delete data...");
 		System.out.print("Name : ");
 		String name = in.next();
-		
-		for(int i = 0; person[i] != null; i++)
-		{
-			if(person[i].getName().equals(name))
-			{
-				person[i] = null;
-				person[i] = person[i+1];
+		int dataIdx = search(name);
+		if (dataIdx < 0) {
+			System.out.println("Cannot find data...");
+		} else {
+
+			for (int idx = dataIdx; idx < count; idx++) {
+
+				person[idx] = person[idx + 1];
+
+				count--;
+				System.out.println("Data has been deleted successfully\n");
 			}
+			person[count] = null;
 		}
+
 	}
-	public void showData()
-	{
-		if(person[0] != null )
-		for(int i=0; person[i] != null; i++)
-		{
-			person[i].showPhoneInfo();
-		}
+
+	public void showData() {
+		int quty = 0;
+
+		if (person[0] != null)
+			for (int i = 0; person[i] != null; i++) {
+				person[i].showPhoneInfo();
+				quty++;
+			}
+		if (quty > 0)
+			System.out.println("You have " + quty + " info in phone book");
 		else
-			System.out.println("nothing to show you...\n");
+			System.out.println("nothing to show you\n");
 	}
 
 }
