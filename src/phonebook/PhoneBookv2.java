@@ -10,7 +10,7 @@ public class PhoneBookv2 {
 		System.out.println("1. Add data");
 		System.out.println("2. Search data");
 		System.out.println("3. Delete data");
-		System.out.println("4. Show data");
+		System.out.println("4. Show data");	
 		System.out.println("5. Exit");
 		System.out.print("Enter : ");
 	}
@@ -42,7 +42,6 @@ public class PhoneBookv2 {
 			case 4:
 				manager.showData();
 				break;
-
 			case 5:
 				System.out.println("Program is done");
 				return;
