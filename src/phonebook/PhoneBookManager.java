@@ -8,16 +8,59 @@ public class PhoneBookManager {
 	PhoneInfo[] person = new PhoneInfo[100]; // Data can be stored only 100
 	int count = 0;
 
-	public void addData() {
+	private void addPhoneInfo(PhoneInfo pInfo) {
+		person[count++] = pInfo;
+	}
+
+	public void addData(int c) {
+
+		String name, pNumber, major, company;
+		int year;
+
 		System.out.print("Name : ");
-		String name = in.next();
+		name = in.nextLine();
 		System.out.print("PhoneNumber : ");
-		String pNumber = in.next();
-		System.out.print("Birthday : ");
-		String birthday = in.next();
-		System.out.println("Data has been updated successfully\n");
-		person[count++] = new PhoneInfo(name, pNumber, birthday); // Important..
-		System.out.println(count);
+		pNumber = in.nextLine();
+
+		if (c == 1) {
+			System.out.println("Data has been updated successfully\n");
+			person[count++] = new PhoneInfo(name, pNumber); // Important..
+		}
+
+		else if (c == 2) {
+			System.out.print("Major : ");
+			major = in.nextLine();
+			System.out.print("Year : ");
+			year = in.nextInt();
+			in.nextLine();
+			System.out.println("");
+			addPhoneInfo(new PhoneUnivInfo(name, pNumber, major, year));
+		}
+
+		else if (c == 3) {
+			System.out.print("Company : ");
+			company = in.nextLine();
+			System.out.println("");
+			
+			addPhoneInfo(new PhoneCompanyInfo(name, pNumber, company));
+		}
+		/*
+		 * while (true) { int n = in.nextInt(); switch (n) { case 1:
+		 * System.out.print("Name : "); String name = in.next();
+		 * System.out.print("PhoneNumber : "); String pNumber = in.next();
+		 * System.out.println("Data has been updated successfully\n"); person[count++] =
+		 * new PhoneInfo(name, pNumber); // Important.. break;
+		 * 
+		 * case 2: System.out.print("Name : "); String name = in.next();
+		 * System.out.print("PhoneNumber : "); String pNumber = in.next();
+		 * System.out.println("Data has been updated successfully\n"); person[count++] =
+		 * new PhoneInfo(name, pNumber); // Important.. break;
+		 * 
+		 * }
+		 * 
+		 * }
+		 */
+
 	}
 
 	public void searchData() {
