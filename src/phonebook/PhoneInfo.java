@@ -4,15 +4,15 @@ class PhoneInfo {
 
 	private String name;
 	private String phoneNumber;
-	private String birthday;
 	
 	
-	public PhoneInfo(String name, String phoneNumber, String birthday) {
+	public PhoneInfo(String name, String phoneNumber) {
 		super();
 		this.name = name;
 		this.phoneNumber = phoneNumber;
-		this.birthday = birthday;
+
 	}
+
 
 	public String getName() {
 		return name;
@@ -22,10 +22,7 @@ class PhoneInfo {
 		return phoneNumber;
 	}
 	
-	public String getBirthday() {
-		return birthday;
-	}
-	
+
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -34,14 +31,10 @@ class PhoneInfo {
 		this.phoneNumber = phoneNumber;
 	}
 	
-	public void setBirthday(String birthday) {
-		this.birthday = birthday;
-	}
 	
-	void showPhoneInfo()
+	public void showPhoneInfo()
 	{
-		System.out.println("Name : " + name +  " \nPhone Number : " + phoneNumber + " \nbirthday : " + birthday);
-		System.out.println();
+		System.out.println("Name : " + name +  " \nPhone Number : " + phoneNumber);
 	}
 }
 
